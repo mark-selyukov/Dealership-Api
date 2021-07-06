@@ -11,7 +11,6 @@ namespace dealership.Controllers
     [Route("[controller]")]
     public class DealershipController : ControllerBase
     {
-
         private readonly ILogger<DealershipController> _logger;
 
         public DealershipController(ILogger<DealershipController> logger)
@@ -22,7 +21,16 @@ namespace dealership.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Hello World";
+            try
+            {
+                return "Hello World";
+            }
+            catch (Exception ex)
+            {
+                var exString = ex.ToString();
+                _logger.LogError($"There was an error in the Dealership Controller: {exString}");
+                return "There was an error";
+            }
         }
     }
 }
