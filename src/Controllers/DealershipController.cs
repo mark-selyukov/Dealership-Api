@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dealership.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,17 +20,18 @@ namespace dealership.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public ReturnItem Get()
         {
+            ReturnItem returnItem = new ReturnItem();
             try
             {
-                return "Hello World";
+                return returnItem;
             }
             catch (Exception ex)
             {
                 var exString = ex.ToString();
                 _logger.LogError($"There was an error in the Dealership Controller: {exString}");
-                return "There was an error";
+                return null;
             }
         }
     }
