@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace dealership.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class DealershipController : ControllerBase
     {
         private readonly ILogger<DealershipController> _logger;

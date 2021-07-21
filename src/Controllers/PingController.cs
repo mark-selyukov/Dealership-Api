@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace dealership.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PingController : ControllerBase
     {
         private readonly ILogger<PingController> _logger;
