@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{- printf "%s-%s" .Release.Name "api" | trunc 63 -}}
