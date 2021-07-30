@@ -4,6 +4,8 @@ metadata:
   name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
   labels:
     app: dealership-api
+  annotations: 
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
   rules:
     - host: dealership.selyslab.com
