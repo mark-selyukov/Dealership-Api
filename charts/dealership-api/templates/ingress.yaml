@@ -10,7 +10,7 @@ spec:
       http: 
         paths:
           - path: /
-            pathType: prefix
+            pathType: Prefix
             backend:
               service:
                 name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
