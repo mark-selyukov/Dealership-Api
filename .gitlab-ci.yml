@@ -21,7 +21,7 @@ deploy:
   stage: deploy
   image: alpine
   before_script:
-    - apk add --no-cache wget
+    - apk add --no-cache wget curl
     - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     - wget https://get.helm.sh/helm-v3.6.3-linux-amd64.tar.gz
     - tar -xvf helm-v3.6.3-linux-amd64.tar.gz
