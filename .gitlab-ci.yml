@@ -27,4 +27,4 @@ deploy:
     - tar -xvf helm-v3.6.3-linux-amd64.tar.gz
     - mv linux-amd64/helm .
   script:
-    - ./helm upgrade dealership-api ./charts/dealership-api --install
+    - ./helm upgrade dealership ./charts/dealership-api --install
