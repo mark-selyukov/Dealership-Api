@@ -14,6 +14,8 @@ spec:
       labels:
         app: dealership-api
     spec:
+      imagePullSecrets:
+        - name: gitlab
       containers:
         - name: dealership-api
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
