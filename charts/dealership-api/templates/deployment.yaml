@@ -6,11 +6,11 @@ metadata:
     app.kubernetes.io/component: dealership-api
 spec:
   replicas: {{ .Values.replicaCount }}
-  selector: 
+  selector:
     matchLabels:
       app.kubernetes.io/component: dealership-api
   template:
-    metadata: 
+    metadata:
       labels:
         app.kubernetes.io/component: dealership-api
     spec:
