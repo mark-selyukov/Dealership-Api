@@ -5,7 +5,7 @@ metadata:
   labels:
     app: dealership-api
   annotations: 
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/cluster-issuer: letsencrypt-production-v1
 spec:
   rules:
     - host: dealership.selyslab.com
