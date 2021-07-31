@@ -1,8 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt-production-v1
+  name: example-issuer
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    preferredChain: "ISRG Root X1"
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: example-issuer-account-key
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
