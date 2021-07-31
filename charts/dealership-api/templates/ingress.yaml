@@ -20,6 +20,6 @@ spec:
                 port: 
                   name: http
   tls:
-    - hosts:
-      - dealership.selyslab.com
-      secretName: dealership.selyslab.com-tls
+  - hosts:
+    - dealership.selyslab.com
+    secretName: dealership.selyslab.com-tls
