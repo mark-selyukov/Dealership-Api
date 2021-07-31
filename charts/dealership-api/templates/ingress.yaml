@@ -18,4 +18,8 @@ spec:
               service:
                 name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
                 port: 
-                  name: http   
+                  name: http
+  tls:
+    - hosts:
+      - dealership.selyslab.com
+      secreteName: dealership.selyslab.com-tls
