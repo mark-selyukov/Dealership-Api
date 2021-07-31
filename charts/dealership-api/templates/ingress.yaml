@@ -22,4 +22,4 @@ spec:
   tls:
     - hosts:
       - dealership.selyslab.com
-      secreteName: dealership.selyslab.com-tls
+      secretName: dealership.selyslab.com-tls
