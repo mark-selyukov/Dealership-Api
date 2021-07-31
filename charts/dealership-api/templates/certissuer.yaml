@@ -1,15 +1,8 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: letsencrypt-production-v1
 spec:
   acme:
-    email: superiorseven421@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-production-v1-account-key
-    solvers:
-      - selector: {}
-        http01:
-          ingress:
-            class: nginx
+    preferredChain: "ISRG Root X1"
