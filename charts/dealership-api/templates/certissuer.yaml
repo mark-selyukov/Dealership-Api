@@ -7,7 +7,7 @@ spec:
     email: superiorseven421@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-production-v1
+      name: letsencrypt-production-v1-account-key
     solvers:
     - http01:
        ingress:
