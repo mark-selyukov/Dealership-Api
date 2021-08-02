@@ -2,9 +2,10 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-production-v1
+  namespace: cert-manager
 spec:
   acme:
-    email: superiorseven421@gmail.com
+    email: letsencrypt@mymail.de
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-production-v1-account-key
