@@ -8,7 +8,7 @@ spec:
     email: letsencrypt@mymail.de
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-production-v1-account-key
+      name: letsencrypt-production-v1
     solvers:
     - http01:
        ingress:
