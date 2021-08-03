@@ -2,9 +2,6 @@ stages:
   - containerize
   - deploy
 
-variables:
-  DOCKER_TLS_CERTDIR: ""
-
 container:
   stage: containerize
   image: docker:20
