@@ -20,6 +20,13 @@ spec:
                 name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
                 port: 
                   name: http
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.uiServiceName }}
+                port: 
+                  name: http                  
   tls:
   - hosts:
     - dealership.selyslab.com
