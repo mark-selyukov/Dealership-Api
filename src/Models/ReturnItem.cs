@@ -11,7 +11,7 @@ namespace dealership.Models
 
         public ReturnItem()
         {
-            Item = ("Hello World! Hope this is secure! Please! Just Please! I beg you");
+            Item = ("This is the dealership .Net api");
         }
     }
 }
