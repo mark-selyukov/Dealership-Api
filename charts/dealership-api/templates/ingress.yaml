@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
   labels:
-    app: dealership-api
+    {{- include "dealership-api.labels" . | nindent 4 }}
   annotations: 
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-production-v1

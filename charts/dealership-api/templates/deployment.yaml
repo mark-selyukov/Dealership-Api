@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
   labels:
-    app: dealership-api
+    {{- include "dealership-api.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: dealership-api
+      {{- include "dealership-api.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: dealership-api
+        {{- include "dealership-api.labels" . | nindent 8 }}
     spec:
       imagePullSecrets:
         - name: gitlab

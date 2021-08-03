@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
   labels:
-    app: dealership-api
+    {{- include "dealership-api.labels" . | nindent 4 }}
 spec:
   selector:
-    app: dealership-api
+    {{- include "dealership-api.selectorLabels" . | nindent 4 }}
   ports:
     - targetPort: http
       port: 80
