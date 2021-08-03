@@ -30,6 +30,7 @@ container:
   only:
     - develop
     - main
+    - tag
 
 deploy:
   stage: deploy
