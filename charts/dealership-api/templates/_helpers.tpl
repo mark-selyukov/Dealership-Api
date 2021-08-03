@@ -28,6 +28,6 @@ Create chart name and version as used by the chart label.
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "dealership-ui.name" -}}
+{{- define "dealership-api.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
