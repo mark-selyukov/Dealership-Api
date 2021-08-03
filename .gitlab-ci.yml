@@ -2,11 +2,21 @@ stages:
   - containerize
   - deploy
 
+variables:
+  # Note that if you're using the Kubernetes executor, the variable should be set to
+  # tcp://localhost:2376/ because of how the Kubernetes executor connects services
+  # to the job container
+  # DOCKER_HOST: tcp://localhost:2376/
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
+
 container:
   stage: containerize
   image: docker:20
   services:
     - docker:20-dind
+  before_script:
+    - docker info
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - export TAG_NAME=$CI_REGISTRY_IMAGE:${CI_COMMIT_TAG:-$CI_COMMIT_REF_NAME}
@@ -20,7 +30,6 @@ container:
   only:
     - develop
     - main
-    - tags
 
 deploy:
   stage: deploy
