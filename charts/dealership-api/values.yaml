@@ -3,7 +3,6 @@ global:
     auth:
       database: car_prod
       username: car_service
-      password: {{ randAlphaNum 20 }}
 
 replicaCount: 1
 
