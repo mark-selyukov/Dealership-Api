@@ -37,4 +37,4 @@ deploy:
     - mv linux-amd64/helm .
   script:
     - ./helm dependency update ./charts/dealership-api
-    - ./helm upgrade dealership ./charts/dealership-api --install --set image_name=$(cat .image_name) --set mysql.auth.password=$MYSQL_PASSWORD --history-max 4
+    - ./helm upgrade dealership ./charts/dealership-api --install --set image_name=$(cat .image_name) --set mysql.auth.password=$MYSQL_PASSWORD --set mysql.auth.rootPassword=$MYSQL_PASSWORD --history-max 4
