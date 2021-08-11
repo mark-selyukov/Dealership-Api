@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dealership.Services;
+using dealership.StartupConfiguration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +33,8 @@ namespace dealership
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dealership", Version = "v1" });
             });
+            services.Configure<MongoSettings>(Configuration.GetSection(nameof(MongoSettings)));
+            services.AddSingleton<DealershipService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

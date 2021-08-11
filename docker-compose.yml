@@ -8,3 +8,8 @@ services:
       MYSQL_DATABASE: car_dev
       MYSQL_USER: mysql
       MYSQL_ROOT_PASSWORD: mysql
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+   

@@ -9,6 +9,16 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
 
+mongodb:
+  auth:
+    username: dealership-mongodb
+
+mongoSecret: 
+  create: true
+  databaseName: dealership-mongodb
+  secretName: dealership-mongodb
+  key: url
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
