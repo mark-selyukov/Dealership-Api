@@ -21,7 +21,7 @@ spec:
           image: {{ .Values.image_name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: MONGOSETTINGS_URL
+            - name: MongoSettings__URL
               valueFrom:
                 secretKeyRef: 
                   name: {{ .Values.mongoSecret.secretName}}
