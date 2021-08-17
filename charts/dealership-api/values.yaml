@@ -25,6 +25,7 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+goServiceName: dealership-go
 uiServiceName: dealership-ui
 
 serviceAccount:

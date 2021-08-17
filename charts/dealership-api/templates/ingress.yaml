@@ -20,6 +20,13 @@ spec:
                 name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
                 port: 
                   name: http
+          - path: /go-api
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.goServiceName }}
+                port: 
+                  name: http
           - path: /
             pathType: Prefix
             backend:
