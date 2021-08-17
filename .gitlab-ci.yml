@@ -43,4 +43,4 @@ deploy:
         --set mysql.auth.password=$MYSQL_PASSWORD \
         --set mysql.auth.rootPassword=$MYSQL_ROOT_PASSWORD \
         --set mongodb.auth.rootPassword=$MONGODB_PASSWORD \
-        --history-max 4
+        --history-max 2
