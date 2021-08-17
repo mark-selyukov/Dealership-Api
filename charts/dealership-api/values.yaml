@@ -1,9 +1,3 @@
-global: 
-  mysql: 
-    auth:
-      database: car_prod
-      username: car_service
-
 replicaCount: 1
 
 image:
@@ -16,6 +10,11 @@ mongoSecret:
   secretName: dealership-mongo
   key: url
   
+mysql: 
+  auth:
+    database: car_prod
+    username: car_service
+
 mysqlSecret: 
   create: true
   secretName: dealership-go-mysql
