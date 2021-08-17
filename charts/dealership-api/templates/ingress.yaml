@@ -13,18 +13,18 @@ spec:
     - host: dealership.selyslab.com
       http: 
         paths:
-          - path: /api/dealership
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
-                port: 
-                  name: http
           - path: /api/car
             pathType: Prefix
             backend:
               service:
                 name: {{ .Values.goServiceName }}
+                port:
+                  name: http
+          - path: /api/dealership
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ printf "%s-%s" .Release.Name "api" | trunc 63 | quote }}
                 port: 
                   name: http
           - path: /
