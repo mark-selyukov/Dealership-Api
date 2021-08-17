@@ -13,7 +13,12 @@ mongoSecret:
   create: true
   username: root
   databaseName: dealership-mongodb
-  secretName: dealership-mongodb
+  secretName: dealership-mongo
+  key: url
+  
+mysqlSecret: 
+  create: true
+  secretName: dealership-mysql
   key: url
 
 imagePullSecrets: []
