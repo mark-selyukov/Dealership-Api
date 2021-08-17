@@ -18,7 +18,7 @@ mongoSecret:
   
 mysqlSecret: 
   create: true
-  secretName: dealership-mysql
+  secretName: dealership-go-mysql
   key: url
 
 imagePullSecrets: []
