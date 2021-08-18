@@ -19,7 +19,7 @@ spec:
               service:
                 name: {{ .Values.goServiceName }}
                 port:
-                  name: http
+                  name: 8080
           - path: /api/dealership
             pathType: Prefix
             backend:
