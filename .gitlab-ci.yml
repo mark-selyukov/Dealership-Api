@@ -60,6 +60,6 @@ migratable:
   variables:
     DATABASE_URL: mysql:mysql@tcp(mysql:3306)/car_dev
     MYSQL_USER: mysql
-    MYSQL_PASSWORD: $MYSQL_PASSWORD
+    MYSQL_PASSWORD: $MYSQL_ROOT_PASSWORD
     MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
     MYSQL_DATABASE: car_dev
