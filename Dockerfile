@@ -7,6 +7,11 @@ COPY . .
 RUN dotnet restore
 RUN dotnet publish -c release -o /app
 
+# migration
+FROM migrate/migrate
+
+COPY ./migrations /migrations
+
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
