@@ -19,7 +19,7 @@ migratable:
     - migrate -path ./migrations -database $DATABASE_URL down -all
     # TODO: dump tables to output for manual verification
   variables:
-    DATABASE_URL: mysql://car_service:$MYSQL_PASSWORD@tcp(dealership-mysql:3306)/dbname?car_prod
+    DATABASE_URL: mysql://car_service:$MYSQL_PASSWORD@tcp(mysql:3306)/car_prod
     MYSQL_DATABASE: car_prod
     MYSQL_PASSWORD: $MYSQL_PASSWORD
     MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
