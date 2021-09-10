@@ -15,8 +15,8 @@ migratable:
   services:
     - mysql
   script:
-    - migrate -path ./migrations -database $DATABASE_URL up
     - migrate -path ./migrations -database $DATABASE_URL down -all
+    - migrate -path ./migrations -database $DATABASE_URL up
     # TODO: dump tables to output for manual verification
   variables:
     MYSQL_USER: car_service
