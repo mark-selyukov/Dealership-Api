@@ -22,7 +22,7 @@ migratable:
     DATABASE_URL: mysql:mysql@tcp(mysql:3306)/car_prod
     MYSQL_USER: car_service
     MYSQL_DATABASE: car_prod
-    MYSQL_PASSWORD: $MYSQL_ROOT_PASSWORD
+    MYSQL_PASSWORD: $MYSQL_PASSWORD
     MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
 
 container:
@@ -59,6 +59,7 @@ deploy:
     - |
       ./helm upgrade dealership ./charts/dealership-api --install \
         --set image_name=$(cat .image_name) \
+        --set mysql.auth.username=car_service \
         --set mysql.auth.password=$MYSQL_PASSWORD \
         --set mysql.auth.rootPassword=$MYSQL_ROOT_PASSWORD \
         --set mongodb.auth.rootPassword=$MONGODB_PASSWORD \
