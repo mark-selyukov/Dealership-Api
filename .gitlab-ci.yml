@@ -15,11 +15,11 @@ migratable:
   services:
     - mysql
   script:
-    - migrate -path ./migrations -database $DATABASE_URL -user $MYSQL_USER -password $MYSQL_PASSWORD up
+    - migrate -path ./migrations -database $DATABASE_URL up
     - migrate -path ./migrations -database $DATABASE_URL down -all
     # TODO: dump tables to output for manual verification
   variables:
-    DATABASE_URL: mysql:mysql@tcp(mysql:3306)/car_prod
+    DATABASE_URL: car_service:EcA6gRRrFp345wer435trdfgwef@tcp(dealership-mysql:3306)/car_prod
     MYSQL_USER: car_service
     MYSQL_DATABASE: car_prod
     MYSQL_PASSWORD: $MYSQL_PASSWORD
