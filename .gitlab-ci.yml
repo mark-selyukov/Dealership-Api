@@ -15,8 +15,7 @@ migratable:
   services:
     - mysql
   script:
-    - set mysql.auth.username=car_service
-    - migrate -path ./migrations -database $DATABASE_URL up
+    - migrate -path ./migrations -database $DATABASE_URL up --set mysql.auth.username=car_service
     - migrate -path ./migrations -database $DATABASE_URL down -all
     # TODO: dump tables to output for manual verification
   variables:
