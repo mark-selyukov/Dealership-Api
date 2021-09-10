@@ -1,11 +1,29 @@
 stages:
+  - migration
   - containerize
   - deploy
-  - Migration
 
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
+
+migratable:
+  stage: migration
+  image:
+    name: migrate/migrate
+    entrypoint: [""]
+  services:
+    - mysql
+  script:
+    - migrate -path ./migrations -database $DATABASE_URL up
+    - migrate -path ./migrations -database $DATABASE_URL down -all
+    # TODO: dump tables to output for manual verification
+  variables:
+    MYSQL_USER: car_service
+    MYSQL_DATABASE: car_prod
+    MYSQL_PASSWORD: $MYSQL_PASSWORD
+    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    DATABASE_URL: mysql://$MYSQL_USER:$MYSQL_PASSWORD@tcp(mysql:3306)/car_prod
 
 container:
   stage: containerize
@@ -45,21 +63,3 @@ deploy:
         --set mysql.auth.rootPassword=$MYSQL_ROOT_PASSWORD \
         --set mongodb.auth.rootPassword=$MONGODB_PASSWORD \
         --history-max 2
-
-migratable:
-  stage: Migration
-  image:
-    name: migrate/migrate
-    entrypoint: [""]
-  services:
-    - mysql
-  script:
-    - migrate -path ./migrations -database $DATABASE_URL up
-    - migrate -path ./migrations -database $DATABASE_URL down -all
-    # TODO: dump tables to output for manual verification
-  variables:
-    MYSQL_USER: car_service
-    MYSQL_DATABASE: car_prod
-    MYSQL_PASSWORD: $MYSQL_PASSWORD
-    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-    DATABASE_URL: mysql://$MYSQL_USER:$MYSQL_PASSWORD@tcp(mysql:3306)/car_prod
