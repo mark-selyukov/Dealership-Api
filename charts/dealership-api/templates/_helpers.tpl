@@ -37,6 +37,19 @@ Create migration helpers
 */}}
 
 {{/*
+Build the image for the chart.
+*/}}
+{{- define "migrations.image" -}}
+{{- if .Values.image.sha }}
+{{- .Values.image.repository }}@{{ .Values.image.sha }}
+{{- else if .Values.image.tag }}
+{{- .Values.image.repository }}:{{ .Values.image.tag }}
+{{- else }}
+{{- .Values.mysql.auth.username }}
+{{- end }}
+{{- end }}
+
+{{/*
 Expand the name of the chart.
 */}}
 {{- define "migrations.name" -}}
