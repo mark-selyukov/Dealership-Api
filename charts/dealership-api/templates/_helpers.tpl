@@ -45,7 +45,7 @@ Build the image for the chart.
 {{- else if .Values.image.tag }}
 {{- .Values.image.repository }}:{{ .Values.image.tag }}
 {{- else }}
-{{- .Values.mysql.auth.username }}
+{{- .Values.image.repository }}
 {{- end }}
 {{- end }}
 
