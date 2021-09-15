@@ -20,6 +20,8 @@ mysqlSecret:
   secretName: dealership-go-mysql
   key: url
 
+migration: mysql-migration
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -30,7 +32,7 @@ uiServiceName: dealership-ui
 serviceAccount:
   create: true
   annotations: {}
-  name: mysql-migration
+  name: ""
 
 podAnnotations: {}
 
