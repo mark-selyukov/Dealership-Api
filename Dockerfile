@@ -1,4 +1,7 @@
-﻿# https://hub.docker.com/_/microsoft-dotnet
+﻿FROM migrate/migrate AS migration
+COPY ./migrations /migrations
+
+# https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /source
 
@@ -6,9 +9,6 @@ WORKDIR /source
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c release -o /app
-
-FROM migrate/migrate AS migration
-COPY ./migrations /migrations
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
