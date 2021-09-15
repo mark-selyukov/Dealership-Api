@@ -1,4 +1,4 @@
-﻿FROM migrate/migrate AS migration
+﻿FROM migrate/migrate
 COPY ./migrations /migrations
 
 # https://hub.docker.com/_/microsoft-dotnet
