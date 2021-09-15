@@ -30,7 +30,7 @@ uiServiceName: dealership-ui
 serviceAccount:
   create: true
   annotations: {}
-  name: "mysql"
+  name: "mysql-migration"
 
 podAnnotations: {}
 
