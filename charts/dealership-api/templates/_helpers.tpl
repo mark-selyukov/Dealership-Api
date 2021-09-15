@@ -53,7 +53,7 @@ Build the image for the chart.
 Expand the name of the chart.
 */}}
 {{- define "migrations.name" -}}
-{{- default .Values.migration | trunc 63 | trimSuffix "-" }}
+{{- default .Values.serviceAccount.name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
