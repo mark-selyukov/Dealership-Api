@@ -23,7 +23,7 @@ spec:
             - -ecx
             - >-
               ../migrate \
-                -path ../migrations/ \
+                -path ../migrations \
                 -database ${DATABASE_URL} \
                 up
           env:
