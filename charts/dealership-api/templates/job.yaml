@@ -27,7 +27,6 @@ spec:
           image: {{ include "migrations.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - echo "Hello"
             - /bin/ash
             - -ecx
             - >-
