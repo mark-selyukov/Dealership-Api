@@ -12,8 +12,8 @@ COPY ./migrations /migrations
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
+COPY --from=migration /migrations /migrations
 WORKDIR /app
-COPY --from=migration . .
 COPY --from=build /app .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "/app/dealership.dll"]
