@@ -22,8 +22,8 @@ spec:
             - /bin/ash
             - -ecx
             - >-
-              /usr/bin/migrate \
-                -path /migrations/ \
+              ../migrate \
+                -path ../migrations/ \
                 -database ${DATABASE_URL} \
                 up
           env:
