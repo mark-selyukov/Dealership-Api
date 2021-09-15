@@ -13,18 +13,9 @@ spec:
   template:
     spec:
       restartPolicy: Never
-      {{- with .Values.image.pullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "migrations.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: migrate
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ include "migrations.image" . }}
+          image: migrate/migrate
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/ash
