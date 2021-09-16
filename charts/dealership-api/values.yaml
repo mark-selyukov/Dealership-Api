@@ -10,18 +10,6 @@ mongoSecret:
   secretName: dealership-mongo
   key: url
 
-mysql:
-  auth:
-    database: car_prod
-    username: car_service
-
-mysqlSecret:
-  create: true
-  secretName: dealership-go-mysql
-  key: url
-
-migration: mysql-migration
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

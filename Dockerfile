@@ -1,7 +1,4 @@
-﻿FROM migrate/migrate
-COPY ./migrations /migrations
-
-# https://hub.docker.com/_/microsoft-dotnet
+﻿# https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /source
 
